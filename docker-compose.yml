@@ -1,0 +1,20 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=smartfarm
+      - POSTGRES_PASSWORD=smartfarm123
+      - POSTGRES_DB=smartfarm
+    ports:
+      - "5432:5432"
+  smart-farm:
+    build:
+      context: .
+    ports:
+      - "8081:8080"
+    links:
+      - db
+    depends_on:
+      - db
