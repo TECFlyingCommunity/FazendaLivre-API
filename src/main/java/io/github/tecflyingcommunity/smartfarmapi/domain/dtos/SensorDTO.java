@@ -2,10 +2,8 @@ package io.github.tecflyingcommunity.smartfarmapi.domain.dtos;
 
 import io.github.tecflyingcommunity.smartfarmapi.domain.entities.SensorEntity;
 
-import java.util.UUID;
-
 public record SensorDTO(
-         UUID id,
+         Long id,
 
          Double temperature,
 

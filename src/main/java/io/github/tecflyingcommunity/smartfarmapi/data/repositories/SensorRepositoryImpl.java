@@ -2,6 +2,7 @@ package io.github.tecflyingcommunity.smartfarmapi.data.repositories;
 
 import io.github.tecflyingcommunity.smartfarmapi.data.datasources.SensorDataSource;
 import io.github.tecflyingcommunity.smartfarmapi.domain.dtos.SensorDTO;
+import io.github.tecflyingcommunity.smartfarmapi.domain.entities.SensorEntity;
 import io.github.tecflyingcommunity.smartfarmapi.domain.repositories.SensorRepository;
 import org.springframework.stereotype.Component;
 
@@ -27,4 +28,10 @@ public class SensorRepositoryImpl implements SensorRepository {
     public Optional<SensorDTO> findById(UUID id) {
         return sensorDataSource.findById(id).map(SensorDTO::new);
     }
+
+	@Override
+	public void save(SensorEntity sensorEntity) {
+		sensorDataSource.save(sensorEntity);
+	}
+    
 }
