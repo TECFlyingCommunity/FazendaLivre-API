@@ -10,6 +10,6 @@ import io.github.tecflyingcommunity.smartfarmapi.domain.entities.SensorEntity;
 public interface SensorRepository {
     List<SensorDTO> findAll();
     Optional<SensorDTO> findById(UUID id);
-    void save(SensorEntity sensorDto);
+    SensorEntity save(SensorEntity sensorDto);
     
 }

@@ -30,8 +30,8 @@ public class SensorRepositoryImpl implements SensorRepository {
     }
 
 	@Override
-	public void save(SensorEntity sensorEntity) {
-		sensorDataSource.save(sensorEntity);
+	public SensorEntity save(SensorEntity sensorEntity) {
+		return sensorDataSource.save(sensorEntity);
 	}
     
 }

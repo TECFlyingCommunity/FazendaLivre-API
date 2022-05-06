@@ -3,6 +3,7 @@ package io.github.tecflyingcommunity.smartfarmapi.domain.usecases;
 import org.springframework.stereotype.Service;
 
 import io.github.tecflyingcommunity.smartfarmapi.domain.dtos.SensorDTO;
+import io.github.tecflyingcommunity.smartfarmapi.domain.entities.SensorEntity;
 import io.github.tecflyingcommunity.smartfarmapi.domain.repositories.SensorRepository;
 
 @Service
@@ -14,8 +15,8 @@ public class RegisterSensor {
 		this.sensorRepository = sensorRepository;
 	}
 	
-	public void save(SensorDTO sensorDto) {
-		sensorRepository.save(sensorDto.toEntity());
+	public SensorEntity save(SensorDTO sensorDto) {
+		return sensorRepository.save(sensorDto.toEntity());
 	}
 
 }
