@@ -1,6 +1,7 @@
 package io.github.tecflyingcommunity.smartfarmapi.data.repositories;
 
 import io.github.tecflyingcommunity.smartfarmapi.data.datasources.SensorDataSource;
+import io.github.tecflyingcommunity.smartfarmapi.domain.dtos.NewSensorDTO;
 import io.github.tecflyingcommunity.smartfarmapi.domain.dtos.SensorDTO;
 import io.github.tecflyingcommunity.smartfarmapi.domain.entities.SensorEntity;
 import io.github.tecflyingcommunity.smartfarmapi.domain.repositories.SensorRepository;
@@ -29,9 +30,9 @@ public class SensorRepositoryImpl implements SensorRepository {
         return sensorDataSource.findById(id).map(SensorDTO::new);
     }
 
-	@Override
-	public SensorEntity save(SensorEntity sensorEntity) {
-		return sensorDataSource.save(sensorEntity);
-	}
-    
+    @Override
+    public SensorEntity save(NewSensorDTO newSensorDTO) {
+        return sensorDataSource.save(newSensorDTO.toEntity());
+    }
+
 }
