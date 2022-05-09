@@ -11,7 +11,15 @@ public record NewSensorDTO(
 
         Double soilHumidity
 ) {
+    public NewSensorDTO(Double temperature, Double luminosity, Double airHumidity, Double soilHumidity) {
+        this.temperature = temperature;
+        this.luminosity = luminosity;
+        this.airHumidity = airHumidity;
+        this.soilHumidity = soilHumidity;
+    }
+
     public NewSensorDTO(SensorEntity entity) {
+
         this(
                 entity.getTemperature(),
                 entity.getLuminosity(),
