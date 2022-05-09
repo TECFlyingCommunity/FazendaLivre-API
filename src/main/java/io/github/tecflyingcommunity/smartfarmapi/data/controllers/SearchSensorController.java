@@ -22,10 +22,10 @@ import java.util.UUID;
 @RestController
 @RequestMapping(value = PathRest.API + PathRest.VERSION + PathRest.SENSOR)
 @Tag(name = "Sensor", description = "Operações do sensores")
-public class SensorController {
+public class SearchSensorController {
     private final SensorSearch sensorSearch;
 
-    public SensorController(SensorSearch sensorSearch) {
+    public SearchSensorController(SensorSearch sensorSearch) {
         this.sensorSearch = sensorSearch;
     }
 

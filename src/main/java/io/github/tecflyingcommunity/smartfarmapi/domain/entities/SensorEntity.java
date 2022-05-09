@@ -1,11 +1,19 @@
 package io.github.tecflyingcommunity.smartfarmapi.domain.entities;
 
-import lombok.*;
+import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import org.hibernate.Hibernate;
 
-import javax.persistence.*;
-import java.util.Objects;
-import java.util.UUID;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
@@ -16,7 +24,7 @@ public class SensorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private UUID id;
+    private Long id;
 
     private Double temperature;
 
@@ -26,7 +34,47 @@ public class SensorEntity {
 
     private Double soilHumidity;
 
-    @Override
+    public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Double getTemperature() {
+		return temperature;
+	}
+
+	public void setTemperature(Double temperature) {
+		this.temperature = temperature;
+	}
+
+	public Double getLuminosity() {
+		return luminosity;
+	}
+
+	public void setLuminosity(Double luminosity) {
+		this.luminosity = luminosity;
+	}
+
+	public Double getAirHumidity() {
+		return airHumidity;
+	}
+
+	public void setAirHumidity(Double airHumidity) {
+		this.airHumidity = airHumidity;
+	}
+
+	public Double getSoilHumidity() {
+		return soilHumidity;
+	}
+
+	public void setSoilHumidity(Double soilHumidity) {
+		this.soilHumidity = soilHumidity;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
