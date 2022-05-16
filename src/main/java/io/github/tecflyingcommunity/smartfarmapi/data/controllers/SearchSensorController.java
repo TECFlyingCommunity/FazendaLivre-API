@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping(value = PathRest.API + PathRest.VERSION + PathRest.SENSOR)
 @Tag(name = "Sensor", description = "Operações do sensores")
+@CrossOrigin(origins = "*")
 public class SearchSensorController {
     private final SensorSearch sensorSearch;
 

@@ -1,5 +1,7 @@
 package io.github.tecflyingcommunity.smartfarmapi.domain.dtos;
 
+import java.time.LocalDateTime;
+
 import io.github.tecflyingcommunity.smartfarmapi.domain.entities.SensorEntity;
 
 public record SensorDTO(
@@ -11,12 +13,14 @@ public record SensorDTO(
 
         Double airHumidity,
 
-        Double soilHumidity
+        Double soilHumidity,
+
+        LocalDateTime createdAt
 ) {
 
     public SensorDTO(SensorEntity entity) {
         this(entity.getId(), entity.getTemperature(), entity.getLuminosity(), entity.getAirHumidity(),
-                entity.getSoilHumidity());
+                entity.getSoilHumidity(),entity.getCreatedAt());
     }
 
     public SensorEntity toEntity() {
@@ -26,6 +30,7 @@ public record SensorDTO(
         entity.setLuminosity(this.luminosity);
         entity.setAirHumidity(this.airHumidity);
         entity.setSoilHumidity(this.soilHumidity);
+        entity.setCreatedAt(this.createdAt);
         return entity;
     }
 }

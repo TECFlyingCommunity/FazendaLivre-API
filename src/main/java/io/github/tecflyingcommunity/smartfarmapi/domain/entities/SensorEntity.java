@@ -1,5 +1,6 @@
 package io.github.tecflyingcommunity.smartfarmapi.domain.entities;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +35,9 @@ public class SensorEntity {
     private Double airHumidity;
 
     private Double soilHumidity;
+
+	@CreationTimestamp
+	private LocalDateTime createdAt;
 
     public Long getId() {
 		return id;
