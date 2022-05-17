@@ -11,7 +11,7 @@ import java.util.UUID;
 public interface SensorRepository {
     List<SensorDTO> findAll();
 
-    Optional<SensorDTO> findById(UUID id);
+    Optional<SensorDTO> findById(Long id);
 
     SensorEntity save(NewSensorDTO newSensorDTO);
 }

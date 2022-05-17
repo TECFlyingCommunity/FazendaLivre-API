@@ -53,7 +53,7 @@ public class SearchSensorController {
             )
     })
     @GetMapping("/{id}")
-    public ResponseEntity<SensorDTO> searchCommandById(@PathVariable UUID id) {
+    public ResponseEntity<SensorDTO> searchCommandById(@PathVariable Long id) {
         final SensorDTO sensor = sensorSearch.searchSensorById(id);
         return ResponseEntity.ok().body(sensor);
     }

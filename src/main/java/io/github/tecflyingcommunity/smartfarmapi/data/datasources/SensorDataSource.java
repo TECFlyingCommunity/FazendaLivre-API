@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface SensorDataSource extends JpaRepository<SensorEntity, UUID> {
+public interface SensorDataSource extends JpaRepository<SensorEntity, Long> {
 }

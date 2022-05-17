@@ -26,7 +26,7 @@ public class SensorRepositoryImpl implements SensorRepository {
     }
 
     @Override
-    public Optional<SensorDTO> findById(UUID id) {
+    public Optional<SensorDTO> findById(Long id) {
         return sensorDataSource.findById(id).map(SensorDTO::new);
     }
 

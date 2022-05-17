@@ -17,7 +17,7 @@ public class SensorSearch {
     }
 
 
-    public SensorDTO searchSensorById(UUID id) {
+    public SensorDTO searchSensorById(Long id) {
         return  sensorRepository.findById(id).orElseThrow(
                 () -> new ObjectNotFoundException(
                         "Endereço não encontrado! Id: " + id + ", Tipo: " + SensorDTO.class.getName())
