@@ -16,7 +16,7 @@ public class DatabaseSeeder implements CommandLineRunner {
             RegisterSensor registerSensor
     ) {
         this.dataSeeds = List.of(
-                new SensorData(registerSensor)
+                // new SensorData(registerSensor)
         );
     }
 

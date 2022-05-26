@@ -7,9 +7,11 @@ import io.github.tecflyingcommunity.smartfarmapi.domain.entities.SensorEntity;
 import io.github.tecflyingcommunity.smartfarmapi.domain.repositories.SensorRepository;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Component
 public class SensorRepositoryImpl implements SensorRepository {
@@ -22,7 +24,9 @@ public class SensorRepositoryImpl implements SensorRepository {
 
     @Override
     public List<SensorDTO> findAll() {
-        return sensorDataSource.findAll().stream().map(SensorDTO::new).toList();
+        final List<SensorEntity> sensorEntities = sensorDataSource.findTop200ByOrderByCreatedAtDesc();
+        Collections.reverse(sensorEntities);
+        return sensorEntities.stream().map(SensorDTO::new).toList();
     }
 
     @Override
